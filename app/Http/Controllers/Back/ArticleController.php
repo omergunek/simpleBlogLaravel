@@ -130,9 +130,20 @@ class ArticleController extends Controller
      */
 
     public function delete($id){
-          Article::find($id)->delete();
-          return redirect()->route('makaleler.index');
+      Article::find($id)->delete();
+      return redirect()->route('makaleler.index');
     }
+
+    public function trashed(){
+      $articles = Article::onlyTrashed()->orderBy('deleted_at','DESC')->get();
+      return view('back.articles.trashed',compact('articles'));
+    }
+
+    public function recover($id){
+      Article::onlyTrashed()->find($id)->restore();
+      return redirect()->route('makaleler.index');
+    }
+
     public function destroy($id)
     {
     
