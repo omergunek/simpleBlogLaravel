@@ -144,6 +144,11 @@ class ArticleController extends Controller
       return redirect()->route('makaleler.index');
     }
 
+    public function hardDelete($id){
+      Article::onlyTrashed()->find($id)->forceDelete();
+      return redirect()->route('makaleler.index');
+    }
+
     public function destroy($id)
     {
     

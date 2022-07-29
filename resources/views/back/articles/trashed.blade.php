@@ -4,7 +4,7 @@
 <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary"><strong>{{$articles->count()}} makale bulundu. </strong> 
-                                <a href="{{route('admin.trashed.article')}}" class="btn btn-warning btn-sm float-right"><i class="fa fa-trash"></i>Silinen Makaleler</a>
+                                <a href="{{route('makaleler.index')}}" class="btn btn-warning btn-sm float-right"><i class="fa fa-edit"></i>Tüm Makaleler</a>
                             </h6>
                         </div>
                         <div class="card-body">
@@ -35,7 +35,7 @@
                                                 
                                                 <a href="{{route('admin.recover.article',$article->id)}}" title="Silmekten Kurtar" class="btn btn-sm btn-primary"><i class="fa fa-recycle"></i></a>
 
-                                                <a href="{{route('delete.article',$article->id)}}" title="Sil" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a>
+                                                 <a href="{{route('admin.hard.delete.article',$article->id)}}" title="Sil" class="btn btn-sm btn-danger"><i class="fa fa-times"></i></a>
                                             </td>
                                         </tr>
                                         @endforeach
